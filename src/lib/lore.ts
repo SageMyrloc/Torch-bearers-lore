@@ -12,8 +12,7 @@ const forbiddenPathParts = [
 const forbiddenSecretTerms = [
   "worm-that-walks",
   "worm that walks",
-  "reanimated wizard",
-  "reanimated corpse"
+  "reanimated"
 ];
 
 export function slugify(value: string) {

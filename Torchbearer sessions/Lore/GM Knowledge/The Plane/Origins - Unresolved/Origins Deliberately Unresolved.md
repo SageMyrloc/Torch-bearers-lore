@@ -1,5 +1,4 @@
 ---
-publish: true
 title: "Origins Deliberately Unresolved"
 aliases:
   - Unresolved Plane Origins

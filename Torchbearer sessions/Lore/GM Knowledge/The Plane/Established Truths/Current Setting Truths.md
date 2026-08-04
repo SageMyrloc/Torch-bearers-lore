@@ -1,5 +1,4 @@
 ---
-publish: true
 title: "Current Setting Truths"
 aliases:
   - Campaign Canon Summary
