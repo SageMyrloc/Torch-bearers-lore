@@ -1,4 +1,5 @@
 ---
+publish: true
 title: "The Central Lantern"
 aliases:
   - The Marketplace Lantern

@@ -1,0 +1,12 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const base = import.meta.env.BASE_URL;
+---
+<BaseLayout title="Lost in the mist">
+  <section class="not-found">
+    <span class="kicker">The lantern dims</span>
+    <h1>Lost in the mist</h1>
+    <p>This record cannot be found—or has not yet been recovered.</p>
+    <a class="button" href={`${base}lore/`}>Return to the archive</a>
+  </section>
+</BaseLayout>

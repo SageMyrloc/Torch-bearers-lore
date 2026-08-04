@@ -1,4 +1,5 @@
 ---
+publish: true
 title: "Creatures in the Mist"
 aliases:
   - Mist Creatures

@@ -1,4 +1,5 @@
 ---
+publish: true
 title: "The Veil of Aeluran - GM Knowledge"
 aliases:
   - Veil GM Knowledge

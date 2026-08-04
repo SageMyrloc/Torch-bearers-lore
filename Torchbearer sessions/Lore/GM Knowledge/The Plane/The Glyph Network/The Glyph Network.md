@@ -1,4 +1,5 @@
 ---
+publish: true
 title: "The Glyph Network"
 aliases:
   - The Glyphs

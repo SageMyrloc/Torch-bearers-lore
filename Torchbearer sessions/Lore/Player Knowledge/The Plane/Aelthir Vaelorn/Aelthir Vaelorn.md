@@ -1,4 +1,5 @@
 ---
+publish: true
 title: "Aelthir Vaelorn"
 aliases: []
 lore_type: "person"

@@ -1,4 +1,5 @@
 ---
+publish: true
 title: "The Gloamheart Prism - GM Knowledge"
 aliases:
   - Gloamheart Prism GM Knowledge

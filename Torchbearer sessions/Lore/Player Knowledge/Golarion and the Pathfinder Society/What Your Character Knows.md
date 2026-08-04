@@ -1,4 +1,5 @@
 ---
+publish: true
 title: "What Your Character Knows"
 aliases:
   - Player Knowledge

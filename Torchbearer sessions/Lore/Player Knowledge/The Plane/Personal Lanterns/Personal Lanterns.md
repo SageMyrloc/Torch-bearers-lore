@@ -1,4 +1,5 @@
 ---
+publish: true
 title: "Personal Lanterns"
 aliases:
   - Expedition Lanterns

@@ -1,4 +1,5 @@
 ---
+publish: true
 title: "The Barred Town"
 aliases: []
 lore_type: "location"

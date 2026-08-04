@@ -1,0 +1,64 @@
+---
+import { getCollection } from "astro:content";
+import LoreCard from "../../components/LoreCard.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { publishedLore } from "../../lib/lore";
+
+const entries = publishedLore(await getCollection("lore"));
+---
+
+<BaseLayout title="Lore library" description="Browse published player and GM lore for the Torchbearers campaign.">
+  <section class="page-heading">
+    <span class="kicker">The archive</span>
+    <h1>Lore library</h1>
+    <p>Search the accumulated knowledge of the expedition. GM records are labelled separately.</p>
+  </section>
+  <section class="library section-shell">
+    <div class="library-tools">
+      <label class="search-box">
+        <span class="sr-only">Search lore</span>
+        <span aria-hidden="true">⌕</span>
+        <input id="lore-search" type="search" placeholder="Search people, places, objects…" autocomplete="off" />
+      </label>
+      <div class="filter-group" aria-label="Filter by audience">
+        <button class="filter active" type="button" data-filter="all">All</button>
+        <button class="filter" type="button" data-filter="player">Player</button>
+        <button class="filter" type="button" data-filter="gm">GM</button>
+      </div>
+    </div>
+    <p class="result-count" aria-live="polite"><span id="result-count">{entries.length}</span> records</p>
+    <div id="lore-grid" class="card-grid">{entries.map((entry) => <LoreCard entry={entry} />)}</div>
+    <div id="empty-state" class="empty-state" hidden>No records match that search.</div>
+  </section>
+
+  <script is:inline>
+    const input = document.querySelector('#lore-search');
+    const cards = [...document.querySelectorAll('.lore-card')];
+    const buttons = [...document.querySelectorAll('.filter')];
+    const count = document.querySelector('#result-count');
+    const empty = document.querySelector('#empty-state');
+    const params = new URLSearchParams(location.search);
+    let audience = ['player', 'gm'].includes(params.get('audience')) ? params.get('audience') : 'all';
+
+    function applyFilters() {
+      const query = input.value.trim().toLowerCase();
+      let visible = 0;
+      cards.forEach((card) => {
+        const matchesText = card.dataset.search.includes(query);
+        const matchesAudience = audience === 'all' || card.dataset.audience === audience;
+        card.hidden = !(matchesText && matchesAudience);
+        if (!card.hidden) visible++;
+      });
+      count.textContent = visible;
+      empty.hidden = visible !== 0;
+      buttons.forEach((button) => button.classList.toggle('active', button.dataset.filter === audience));
+    }
+
+    input.addEventListener('input', applyFilters);
+    buttons.forEach((button) => button.addEventListener('click', () => {
+      audience = button.dataset.filter;
+      applyFilters();
+    }));
+    applyFilters();
+  </script>
+</BaseLayout>

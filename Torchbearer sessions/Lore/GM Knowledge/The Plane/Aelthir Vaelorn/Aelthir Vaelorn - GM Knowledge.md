@@ -1,4 +1,5 @@
 ---
+publish: true
 title: "Aelthir Vaelorn - GM Knowledge"
 aliases:
   - Aelthir GM Knowledge

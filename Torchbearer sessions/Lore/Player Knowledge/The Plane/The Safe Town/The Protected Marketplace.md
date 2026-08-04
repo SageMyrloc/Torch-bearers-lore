@@ -1,4 +1,5 @@
 ---
+publish: true
 title: "The Protected Marketplace"
 aliases:
   - The Central Marketplace

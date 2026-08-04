@@ -1,4 +1,5 @@
 ---
+publish: true
 title: "The Pathfinder Society Expedition"
 aliases:
   - The Torchbearers

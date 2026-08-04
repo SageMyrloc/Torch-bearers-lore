@@ -1,0 +1,24 @@
+---
+import type { LoreEntry } from "../lib/lore";
+import { entryAudience, entryTitle, loreUrl } from "../lib/lore";
+
+interface Props { entry: LoreEntry }
+const { entry } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const title = entryTitle(entry);
+const type = entry.data.lore_type?.replace(/\b\w/g, (letter: string) => letter.toUpperCase());
+---
+
+<article
+  class="lore-card"
+  data-search={`${title} ${entryAudience(entry)} ${type || ""} ${(entry.data.tags || []).join(" ")}`.toLowerCase()}
+  data-audience={entry.data.audience?.toLowerCase() || "player"}
+>
+  <div class="card-meta">
+    <span class:list={["eyebrow", entry.data.audience?.toLowerCase() === "gm" && "gm"]}>{entryAudience(entry)}</span>
+    {type && <span>{type}</span>}
+  </div>
+  <h2><a href={loreUrl(entry, base)}>{title}</a></h2>
+  <p>{entry.data.certainty ? `${entry.data.certainty} knowledge` : "Campaign lore"}</p>
+  <a class="card-link" href={loreUrl(entry, base)} aria-label={`Read ${title}`}>Open record <span>→</span></a>
+</article>

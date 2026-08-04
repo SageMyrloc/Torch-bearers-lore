@@ -1,4 +1,5 @@
 ---
+publish: true
 title: "The Mist - GM Knowledge"
 aliases:
   - The Mist

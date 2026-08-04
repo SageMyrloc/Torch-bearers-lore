@@ -1,4 +1,5 @@
 ---
+publish: true
 title: "Personal Lanterns - GM Knowledge"
 aliases:
   - Personal Lanterns

@@ -1,4 +1,5 @@
 ---
+publish: true
 title: "The Portal - GM Knowledge"
 aliases:
   - The Portal

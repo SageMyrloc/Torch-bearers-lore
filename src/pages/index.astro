@@ -1,0 +1,53 @@
+---
+import { getCollection } from "astro:content";
+import LoreCard from "../components/LoreCard.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { publishedLore } from "../lib/lore";
+
+const entries = publishedLore(await getCollection("lore"));
+const featured = entries.filter((entry) => entry.data.audience?.toLowerCase() !== "gm").slice(0, 3);
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout description="The accumulated lore of the Torchbearers and the Veil of Aeluran.">
+  <section class="hero">
+    <div class="hero-copy">
+      <span class="kicker">Pathfinder Society archive</span>
+      <h1>Carry the light<br /><em>into the Veil.</em></h1>
+      <p>
+        A living record of the Torchbearers’ discoveries in the mist-shrouded demiplane of Aeluran.
+        What is known is precious. What remains beyond the lantern-light is not yet quiet.
+      </p>
+      <div class="hero-actions">
+        <a class="button" href={`${base}lore/`}>Enter the archive</a>
+        <a class="text-link" href={`${base}lore/?audience=player`}>Player knowledge <span>→</span></a>
+      </div>
+    </div>
+    <div class="lantern-scene" aria-hidden="true">
+      <div class="mist mist-one"></div>
+      <div class="mist mist-two"></div>
+      <div class="lantern">
+        <div class="lantern-top"></div>
+        <div class="lantern-frame"><div class="flame"></div></div>
+        <div class="lantern-base"></div>
+      </div>
+      <span class="sigil sigil-one">᛭</span><span class="sigil sigil-two">◇</span><span class="sigil sigil-three">⌁</span>
+    </div>
+  </section>
+
+  <section class="intro-strip">
+    <div><strong>{entries.length}</strong><span>published records</span></div>
+    <p>Knowledge gathered at the edge of the central lantern’s protection.</p>
+    <a href={`${base}lore/?audience=gm`}>Browse GM lore →</a>
+  </section>
+
+  {featured.length > 0 && (
+    <section class="section-shell">
+      <div class="section-heading">
+        <div><span class="kicker">Begin here</span><h2>Expedition essentials</h2></div>
+        <a class="text-link" href={`${base}lore/`}>View all lore <span>→</span></a>
+      </div>
+      <div class="card-grid">{featured.map((entry) => <LoreCard entry={entry} />)}</div>
+    </section>
+  )}
+</BaseLayout>

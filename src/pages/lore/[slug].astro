@@ -1,0 +1,45 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { entryAudience, entrySlug, entryTitle, publishedLore } from "../../lib/lore";
+
+export async function getStaticPaths() {
+  const entries = publishedLore(await getCollection("lore"));
+  return entries.map((entry) => ({ params: { slug: entrySlug(entry) }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content, headings } = await render(entry);
+const title = entryTitle(entry);
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title={title} description={`${entryAudience(entry)}: ${title}`}>
+  <div class="article-shell">
+    <article class="lore-article">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href={base}>Home</a><span>/</span><a href={`${base}lore/`}>Lore</a><span>/</span><span>{title}</span>
+      </nav>
+      <header class="article-header">
+        <span class:list={["eyebrow", entry.data.audience?.toLowerCase() === "gm" && "gm"]}>{entryAudience(entry)}</span>
+        <h1>{title}</h1>
+        <div class="article-meta">
+          {entry.data.lore_type && <span>{entry.data.lore_type}</span>}
+          {entry.data.certainty && <span>{entry.data.certainty}</span>}
+          {entry.data.status && <span>{entry.data.status}</span>}
+        </div>
+      </header>
+      <div class="prose"><Content /></div>
+      <div class="article-end"><span>✦</span></div>
+    </article>
+    <aside class="article-aside">
+      {headings.length > 1 && (
+        <nav aria-label="On this page">
+          <strong>On this page</strong>
+          {headings.filter((heading) => heading.depth === 2).map((heading) => <a href={`#${heading.slug}`}>{heading.text}</a>)}
+        </nav>
+      )}
+      <a class="back-card" href={`${base}lore/`}>← Back to the archive</a>
+    </aside>
+  </div>
+</BaseLayout>

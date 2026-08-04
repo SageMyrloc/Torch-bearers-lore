@@ -1,4 +1,5 @@
 ---
+publish: true
 title: "The Town at Campaign Start - GM Knowledge"
 aliases:
   - The Town Before Reclamation

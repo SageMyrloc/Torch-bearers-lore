@@ -1,4 +1,5 @@
 ---
+publish: true
 title: "The Central Lantern - GM Knowledge"
 aliases:
   - The Central Lantern

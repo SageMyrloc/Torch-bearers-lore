@@ -1,4 +1,5 @@
 ---
+publish: true
 title: "The Mist"
 aliases: []
 lore_type: "phenomenon"

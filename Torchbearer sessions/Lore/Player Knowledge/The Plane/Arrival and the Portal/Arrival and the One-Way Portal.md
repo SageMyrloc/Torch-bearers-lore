@@ -1,4 +1,5 @@
 ---
+publish: true
 title: "Arrival and the One-Way Portal"
 aliases:
   - The Portal
