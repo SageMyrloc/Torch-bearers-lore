@@ -1,0 +1,21 @@
+site_name: Torchbearers GM Archive
+site_description: Shared GM knowledge for the Torchbearers campaign
+docs_dir: gm-docs
+site_dir: site/archive-4d7c9e2b6f1a
+theme:
+  name: material
+  palette:
+    scheme: slate
+  features:
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+plugins:
+  - search
