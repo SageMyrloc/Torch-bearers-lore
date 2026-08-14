@@ -1,4 +1,4 @@
-name: Deploy player lore to GitHub Pages
+name: Deploy lore to GitHub Pages
 
 on:
   push:
@@ -30,8 +30,14 @@ jobs:
         run: pip install -r requirements-pages.txt
       - name: Generate player-safe documentation
         run: python scripts/build-player-lore.py
-      - name: Build site
+      - name: Build player site
         run: mkdocs build --strict
+      - name: Generate shared GM documentation
+        run: python scripts/build-gm-lore.py
+      - name: Build hidden GM site
+        run: mkdocs build -f mkdocs-gm.yml --strict
+      - name: Reduce GM site discoverability
+        run: python scripts/harden-gm-site.py
       - name: Configure Pages
         uses: actions/configure-pages@v5
         with:
