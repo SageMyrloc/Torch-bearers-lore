@@ -9,7 +9,7 @@ tags:
   - scope
   - player-knowledge
 created: "2026-08-03"
-updated: "2026-08-03"
+updated: "2026-08-16"
 ---
 
 # Player Knowledge Scope
@@ -31,6 +31,10 @@ This document defines what may be treated as player knowledge when creating Torc
 ### Known
 
 - The destination is a mist-filled demiplane reached through a one-way portal.
+- The demiplane is called the **Veil of Aeluran**.
+- It was created by the obscure Age-of-Darkness wizard **Aelthir Vaelorn**.
+- Aelthir used the **Gloamheart Prism** as the power source for the Veil's creation.
+- Aelthir is known mainly through specialist scholarship concerning permanent artificial demiplanes; most people would not recognise his name without the expedition briefing.
 - The central marketplace is protected by a giant lantern.
 - The central lantern relit with the first arrival and has strengthened as more people arrived.
 - Personal lanterns are lit from it, last one active day and conserve their duration while shuttered.
@@ -40,6 +44,7 @@ This document defines what may be treated as player knowledge when creating Torc
 
 ### Minimally Known
 
+- Aelthir's surviving research and the authenticity of the Vaelorn Fragments.
 - The mist's nature, rules, inhabitants and origin.
 - The condition and history of the wider town.
 
@@ -47,7 +52,8 @@ This document defines what may be treated as player knowledge when creating Torc
 
 - The existence and function of the glyph network.
 - The identity, nature and existence of the reanimated wizard antagonist.
-- The origin and creator of the demiplane.
+- The exact reason Aelthir created the Veil.
+- The origin and true nature of the Gloamheart Prism.
 - The reasons for the portal's and lantern's behaviour.
 
 ## Authoring Rules
@@ -58,4 +64,3 @@ This document defines what may be treated as player knowledge when creating Torc
 - Create or revise player lore when discoveries occur so the vault becomes the expedition's accumulated record.
 - Keep GM truth, theories and unresolved design decisions in GM Knowledge.
 - Do not convert an inference, rumour or assistant suggestion into confirmed canon without GM approval.
-
